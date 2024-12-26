@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuning Website</title>
+    <link rel="stylesheet" href="services.css">
+</head>
+<script>
+    // Show the selected tuning options in the result box
+    function showTuningOptions() {
+        // Get selected values from each dropdown
+        const vehicleType = document.getElementById("vehicleType").value;
+        const manufacturer = document.getElementById("manufacturer").value;
+        const model = document.getElementById("model").value;
+        const year = document.getElementById("year").value;
+        const engine = document.getElementById("engine").value;
+
+        // Check if all fields are selected
+        if (vehicleType === "Select vehicle type" || manufacturer === "Select manufacturer" || model === "Select model" || year === "Select year" || engine === "Select engine") {
+            alert("Please select all options!");
+            return;
+        }
+
+        // Populate the result box with selected values
+        document.getElementById("selectedVehicleType").textContent = "Vehicle Type: " + vehicleType;
+        document.getElementById("selectedManufacturer").textContent = "Manufacturer: " + manufacturer;
+        document.getElementById("selectedModel").textContent = "Model: " + model;
+        document.getElementById("selectedYear").textContent = "Year: " + year;
+        document.getElementById("selectedEngine").textContent = "Engine: " + engine;
+
+        // Show the result box
+        document.getElementById("resultBox").style.display = "block";
+    }
+</script>
+<body>
+    <header>
+        <div class="logo">
+            <span class="tuning">Tuning</span>
+            <span class="website">Website</span>
+        </div>
+       
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">Call us: +96170403813</div>
+    </header>
+    
+    <section class="services-section">
+        <div class="background-image">
+            <h1 class="services-title">Services</h1>
+        </div>
+        <div class="services-content">
+            <h2>We'll bring out a whole new dimension of your car</h2>
+            <p>From performance remaps to economy tuning, we can help you achieve what you want from your vehicle.</p>
+            <p>Below you'll find a list of our most popular services:</p>
+        </div>
+    </section>
+
+    <section class="hero-section">
+        <img src="images/audicar.jpeg" alt="Car Image" class="car-image">
+        <div class="servicess">
+            <div class="servi">
+                <span class="number">01</span>
+                <h3>Performance Tuning</h3>
+                <p>This is the text area for this paragraph. To change it, simply click here and start typing.</p>
+            </div>
+            <div class="servi">
+                <span class="number">02</span>
+                <h3>Economy Tuning</h3>
+                <p>This is the text area for this paragraph. To change it, simply click here and start typing.</p>
+            </div>
+            <div class="servi">
+                <span class="number">03</span>
+                <h3>DPF & EGR Solutions</h3>
+                <p>This is the text area for this paragraph. To change it, simply click here and start typing.</p>
+            </div>
+            <div class="servi">
+                <span class="number">04</span>
+                <h3>Advanced Diagnostics</h3>
+                <p>This is the text area for this paragraph. To change it, simply click here and start typing.</p>
+            </div>
+        </div>
+    </section>
+
+   
+<div class="container">
+    
+    
+
+ <!-- Right Vehicle Search Section -->
+ <div class="vehicle-search">
+    <h3>Vehicle Search</h3>
+        <!-- Dropdowns -->
+        <select id="vehicleType">
+            <option>Select vehicle type</option>
+            <option>Car</option>
+            <option>Truck</option>
+            <option>Motorcycle</option>
+        </select>
+        <select id="manufacturer">
+            <option>Select manufacturer</option>
+            <option>Toyota</option>
+            <option>Ford</option>
+            <option>BMW</option>
+        </select>
+        <select id="model">
+            <option>Select model</option>
+            <option>Camry</option>
+            <option>Focus</option>
+            <option>X5</option>
+        </select>
+        <select id="year">
+            <option>Select year</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+            <option>2023</option>
+        </select>
+        <select id="engine">
+            <option>Select engine</option>
+            <option>1.6L</option>
+            <option>2.0L</option>
+            <option>3.0L</option>
+        </select>
+        <button class="btn" onclick="showTuningOptions()">→ View tuning options</button>
+        
+        <!-- Result Box (Initially Hidden) -->
+        <div id="resultBox" class="result-box">
+            <h4>Selected Tuning Options:</h4>
+            <p id="selectedVehicleType"></p>
+            <p id="selectedManufacturer"></p>
+            <p id="selectedModel"></p>
+            <p id="selectedYear"></p>
+            <p id="selectedEngine"></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer Section -->
+<footer class="footer-section">
+    <div class="footer-wrapper">
+        <!-- Left Section -->
+        <div class="footer-left">
+            <h3 class="logo">Tuning<span class="red">website</span></h3>
+            <p>This is a demo website for a vehicle tuning company.</p>
+         
+            <a href="images/fc.png" class="facebook" target="_blank"></a>
+        </div>
+
+        <!-- Center Section -->
+        <div class="footer-center">
+            <h4>Contact us</h4>
+            <p>+96170403813<br>info@bensky.co.uk</p>
+        </div>
+
+        <div class="footer-menu">
+            <h4>Menu</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="store.html">store</a></li>
+                <li><a href="contact.html">contact</a></li>
+
+            </ul>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+            <h4>Connect with us</h4>
+            <div class="social-icons">
+                <span class="icon-facebook">f</span>
+              
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<a href="#" class="order-button">Order now</a>
+
+
+    
+</div>
+        <div class="floating-buttons">
+            <a href="images/whatsapp.png" class="whatsapp" target="_blank"></a>
+            <a href="images/fc.png" class="facebook" target="_blank"></a>
+        </div>
+
+        <footer class="foo">
+            <p>&copy; Tuning Website - Change cookie preferences</p>
+            <br>
+            <p>WEB DESIGN FOR TUNING COMPANIES:</p>
+            <button>BENSKY</button>
+        </footer>
+              
+        
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Tuning Website</title>
+    <link rel="stylesheet" href="testimonials.css">
+    <link rel="stylesheet" href="testionials.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span class="tuning">Tuning</span>
+            <span class="website">Website</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">Call us: +96170403813</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('images/testimonials.jpeg');">
+        <h1>Testimonials</h1>
+    </section>
+
+    <section class="reviews-section">
+        <h1>We have countless happy customers</h1>
+        <p>Here's a few words from some of our latest work.</p>
+        
+</section>
+<section class="reviewss-containerr">
+        <div class="reviews-container" id="reviews-container">
+          
+        </div>
+        <div class="write-review">
+            <button onclick="toggleForm()">Write a Review</button>
+        </div>
+        <form class="review-form" id="review-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="vehicle" placeholder="Your Vehicle" required>
+            <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="button" onclick="addReview()">Send</button>
+        </form>
+    
+</section>
+    <script>
+        const reviewsContainer = document.getElementById('reviews-container');
+        const reviewForm = document.getElementById('review-form');
+
+        // Load reviews from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            savedReviews.forEach(review => {
+                addReviewToPage(review);
+            });
+        });
+
+        function toggleForm() {
+            reviewForm.style.display = reviewForm.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function addReview() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const vehicle = document.getElementById('vehicle').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && vehicle && message) {
+                const review = { name, vehicle, message };
+
+                // Save to localStorage
+                const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+                savedReviews.push(review);
+                localStorage.setItem('reviews', JSON.stringify(savedReviews));
+
+                // Add to the page
+                addReviewToPage(review);
+
+                // Clear the form
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('vehicle').value = '';
+                document.getElementById('message').value = '';
+                reviewForm.style.display = 'none';
+            }
+        }
+
+        function addReviewToPage(review) {
+            const reviewCard = document.createElement('div');
+            reviewCard.classList.add('review-card');
+            reviewCard.innerHTML = `
+                <p>"${review.message}"</p>
+                <div class="name">${review.name}</div>
+                <div class="car">${review.vehicle}</div>
+            `;
+            reviewsContainer.appendChild(reviewCard);
+        }
+    </script>
+    <footer class="footer-section">
+        <div class="footer-wrapper">
+            <!-- Left Section -->
+            <div class="footer-left">
+                <h3 class="logo">Tuning<span class="red">website</span></h3>
+                <p>This is a demo website for a vehicle tuning company.</p>
+                <a href="images/fc.png" class="facebook" target="_blank"></a>
+            </div>
+
+            <!-- Center Section -->
+            <div class="footer-center">
+                <h4>Contact us</h4>
+                <p>+96170403813<br>info@bensky.co.uk</p>
+            </div>
+
+            <div class="footer-menu">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="store.html">store</a></li>
+                    <li><a href="contact.html">contact</a></li>
+    
+                </ul>
+            </div>
+
+            <!-- Right Section -->
+            <div class="footer-right">
+                <h4>Connect with us</h4>
+                <div class="social-icons">
+                    <span class="icon-facebook">f</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="order-button">Order now</a>
+
+    <div class="floating-buttons">
+        <a href="images/whatsapp.png" class="whatsapp" target="_blank"></a>
+        <a href="images/fc.png" class="facebook" target="_blank"></a>
+    </div>
+
+    <footer class="foo">
+        <p>&copy; Tuning Website - Change cookie preferences</p>
+        <br>
+        <p>WEB DESIGN FOR TUNING COMPANIES:</p>
+        <button>BENSKY</button>
+    </footer>
+    
+</body>
+
+</html>
